@@ -1,0 +1,242 @@
+{
+  "conversations": {
+    "english": {
+      "greeting": {
+        "inputs": ["hi", "hello", "hey", "good morning", "good evening", "how are you"],
+        "responses": [
+          "Hello! How are you feeling today?",
+          "Hi! I’m here for you. What’s on your mind?",
+          "Hey! How can I assist you today?",
+          "Good morning! Hope you're doing okay. Want to talk?",
+          "Good evening! How can I help you today?",
+          "I'm doing well, thank you! How are you feeling?"
+        ]
+      },
+      "happy conversations": {
+        "inputs": ["great", "I am happy","I am fine ","It was fine", "hey", "good morning", "good evening", "how are you"],
+        "responses": [
+          "Glad to hear that",
+          "Glad to hear that! How has your day been?",
+          "Nice! ",
+          "Good morning! Hope you're doing okay. Want to talk?",
+          "Good evening! How can I help you today?",
+          "I'm doing well, thank you! How are you feeling?"
+        ]
+      },
+
+      "feeling_down": {
+        "inputs": ["I'm feeling down", "I'm sad", "I feel low", "I am depressed"],
+        "responses": [
+          "I’m sorry you’re feeling this way. Would you like to talk about what’s making you feel down?",
+          "It’s okay to feel sad sometimes. Do you want to share what’s on your mind?",
+          "I understand things can feel tough. I’m here to listen. What’s bothering you?",
+          "I'm sorry you're feeling like this. Can you tell me more about what's on your mind?"
+        ]
+      },
+      "anxiety": {
+        "inputs": ["I feel anxious", "I'm anxious", "I'm worried", "I have anxiety"],
+        "responses": [
+          "Anxiety can be overwhelming, but you're not alone. Do you want to talk about what's causing it?",
+          "It’s normal to feel anxious at times. What’s worrying you?",
+          "Take a deep breath. Let’s figure this out together. What’s making you feel this way?",
+          "I understand how hard anxiety can be. What's on your mind right now?"
+        ]
+      },
+      "loneliness": {
+        "inputs": ["I'm lonely", "I feel lonely", "I have no one to talk to"],
+        "responses": [
+          "I'm really sorry you're feeling this way. Loneliness can be tough, but I’m here for you. Would you like to talk?",
+          "Feeling lonely is hard. I'm here to listen to whatever you want to share.",
+          "You’re not alone right now—I’m here with you. What’s been on your mind?",
+          "Loneliness can be really tough. Is there anything specific that's troubling you?"
+        ]
+      },
+      "encouragement": {
+        "inputs": ["I feel like giving up", "I can't go on", "I have no hope", "I'm tired of everything"],
+        "responses": [
+          "I’m really sorry you’re feeling like this. Please don’t give up—there’s always hope, even when it feels impossible.",
+          "You’ve come this far, and that shows your strength. Let’s figure this out together. What’s making you feel this way?",
+          "I understand that things can feel overwhelming. But you’re stronger than you know. Let's talk about what's happening.",
+          "It’s okay to feel exhausted, but don’t lose hope. I'm here to listen—what’s been weighing you down?"
+        ]
+      },
+      "work_stress": {
+        "inputs": ["I'm feeling overwhelmed with work stress", "I have so much work stress", "Work is stressing me out"],
+        "responses": [
+          "It's normal to feel overwhelmed at times. Can you tell me more about what's causing this stress at work?",
+          "Work stress can be really tough. What specific aspects are bothering you?",
+          "Have you tried any coping strategies to manage your work stress?",
+          "Let's explore what’s causing your work stress together."
+        ]
+      },
+      "financial_stress": {
+        "inputs": ["I'm worried about my financial situation", "I have financial stress", "Money is stressing me out"],
+        "responses": [
+          "Financial stress can be really tough. What specific concerns do you have regarding your finances?",
+          "It's understandable to worry about finances. Let’s discuss what's troubling you.",
+          "What aspects of your financial situation are causing you the most stress?",
+          "You’re not alone; many people face financial stress. Let’s talk about it."
+        ]
+      },
+      "time_management": {
+        "inputs": ["I can't manage my time effectively", "Time management is hard for me", "I'm struggling with time management"],
+        "responses": [
+          "Time management is crucial. Have you tried any strategies to help you prioritize tasks?",
+          "It can be challenging to manage time. What specific issues are you facing?",
+          "Let’s explore some techniques to improve your time management skills.",
+          "Understanding your priorities can help. What tasks are taking up most of your time?"
+        ]
+      },
+      "health_stress": {
+        "inputs": ["I'm stressed about my health", "Health issues are bothering me", "I'm worried about my health"],
+        "responses": [
+          "Health-related stress is common. Are there specific health concerns that are bothering you?",
+          "It’s important to take care of your health. What’s been on your mind regarding your health?",
+          "Let’s discuss what’s troubling you about your health.",
+          "You’re not alone in feeling this way; let’s talk about your health concerns."
+        ]
+      },
+      "social_stress": {
+        "inputs": ["I feel anxious in social situations", "Social situations make me anxious", "I don't like social gatherings"],
+        "responses": [
+          "Social stress can be challenging. What specific social situations make you feel anxious?",
+          "It’s okay to feel uneasy in social settings. Let’s talk about it.",
+          "Have you found any strategies that help you cope with social anxiety?",
+          "You’re not alone; many people feel this way. What triggers your social anxiety?"
+        ]
+      },
+      "life_change_stress": {
+        "inputs": ["I'm going through a major life change", "Life changes are stressing me out", "I can't handle this life change"],
+        "responses": [
+          "Life changes can bring a lot of stress. What kind of change are you experiencing?",
+          "It’s understandable to feel stressed during transitions. Let’s explore what’s happening.",
+          "Adjusting to life changes can be tough. What specific changes are you facing?",
+          "You’re not alone in feeling stressed about changes. Let’s talk about it."
+        ]
+      },
+      "relationship_stress": {
+        "inputs": ["I'm having relationship problems", "My relationship is causing me stress", "I'm stressed about my partner"],
+        "responses": [
+          "Relationship stress can be tough to handle. Can you share more about the issues you are facing?",
+          "It's normal to face challenges in relationships. Let’s discuss what's bothering you.",
+          "Have you considered what you’d like to improve in your relationship?",
+          "Talking about your relationship concerns can help. What’s been on your mind?"
+        ]
+      }
+    },
+    "hinglish": {
+      "greeting": {
+        "inputs": ["hi", "hello", "hey", "good morning", "good evening", "kaise ho"],
+        "responses": [
+          "Hello! Aap kaise ho aaj?",
+          "Hi! Main yahan hoon aapke liye. Aapke dimaag mein kya chal raha hai?",
+          "Hey! Aap kaise ho? Main aapki madad karne ke liye hoon.",
+          "Good morning! Umeed hai sab theek hai. Baat karna chaahenge?",
+          "Good evening! Aaj ka din kaisa raha? Main sunne ke liye yahan hoon.",
+          "Main theek hoon, aap kaise ho? Kaisa mehsoos ho raha hai?"
+        ]
+      },
+      "feeling_down": {
+        "inputs": ["Main udaas hoon", "Main dukhi hoon", "Mujhe acha nahi lag raha", "Main depression mein hoon"],
+        "responses": [
+          "Mujhe afsos hai ki aap aisa mehsoos kar rahe ho. Aapko udaasi ka karan batana chaahenge?",
+          "Kabhi kabhi dukhi hona theek hai. Kya aap batana chaahenge ki aapko kya pareshan kar raha hai?",
+          "Main samajhta hoon ki kabhi kabhi cheezein mushkil lagti hain. Aap mujhe apni feelings ke baare mein bata sakte ho.",
+          "Mujhe bura lag raha hai ki aap aise mehsoos kar rahe ho. Aap apni feelings share karna chaahenge?"
+        ]
+      },
+      "anxiety": {
+        "inputs": ["Mujhe chinta ho rahi hai", "Main pareshan hoon", "Mujhe anxiety ho rahi hai"],
+        "responses": [
+          "Chinta bahut takleef de sakti hai, par aap akele nahi ho. Kya aap mujhe batana chaahenge ki kya wajah hai?",
+          "Kabhi kabhi chinta hona swabhavik hai. Aapko kya pareshan kar raha hai?",
+          "Ek gehra saans lijiye. Hum mil kar is samasya ka samadhan karte hain. Aapko chinta kyun ho rahi hai?",
+          "Main samajhta hoon anxiety kitni mushkil ho sakti hai. Aap abhi kya soch rahe ho?"
+        ]
+      },
+      "loneliness": {
+        "inputs": ["Main akela hoon", "Main tanha mehsoos kar raha hoon", "Mere paas koi nahi hai baat karne ke liye"],
+        "responses": [
+          "Mujhe bura lag raha hai ki aap aisa mehsoos kar rahe ho. Tanhaapan mushkil hota hai, lekin main yahan hoon. Baat karna chaahenge?",
+          "Tanha rehna bahut mushkil hota hai. Main aapki baat sunne ke liye hoon.",
+          "Aap abhi akele nahi ho—main aapke saath hoon. Aap apne mann ki baat share karna chaahenge?",
+          "Tanhaapan bahut takleef de sakta hai. Kya kuch khaas baat hai jo aapko pareshan kar rahi hai?"
+        ]
+      },
+      "encouragement": {
+        "inputs": ["Mujhe lagta hai main haar raha hoon", "Main aage nahi badh sakta", "Mujhe koi umeed nahi hai", "Main thak gaya hoon"],
+        "responses": [
+          "Mujhe afsos hai ki aap aisa mehsoos kar rahe ho. Kripya himmat mat haaro—umeed hamesha hoti hai.",
+          "Aap yahan tak pahunche ho, iska matlab hai aap mein himmat hai. Hum mil kar iska samadhan nikalte hain.",
+          "Main samajhta hoon ki cheezein kabhi kabhi overwhelming lagti hain. Aap kaafi mazboot ho. Chalo baat karte hain.",
+          "Thakaavat mehsoos karna theek hai, lekin umeed mat chhodiye. Main sunne ke liye yahan hoon—kya cheezein aapko pareshan kar rahi hain?"
+        ]
+      },
+      "work_stress": {
+        "inputs": ["I'm feeling overwhelmed with work stress", "I have so much work stress", "Work is stressing me out"],
+        "responses": [
+          "Yeh samanya hai. Kya aap mujhe bata sakte hain ki aapke kaam mein kya samasya hai?",
+          "Kaam ka stress kaafi mushkil hota hai. Kya aap mujhe bata sakte hain ki kya cheezein aapko pareshan kar rahi hain?",
+          "Kya aapne apne kaam ka stress manage karne ki koi koshish ki hai?",
+          "Chalo mil kar dekhte hain ki kaam ka stress kaise manage kiya ja sakta hai."
+        ]
+      },
+      "financial_stress": {
+        "inputs": ["I'm worried about my financial situation", "I have financial stress", "Money is stressing me out"],
+        "responses": [
+          "Paise ka stress kaafi mushkil hota hai. Aapko kis tarah ki chintayein hain?",
+          "Paise ki chinta samanya hai. Chalo baat karte hain ki kya cheezein aapko pareshan kar rahi hain.",
+          "Aapke paise ki situation mein kaun se pehlu aapko sabse zyada stress de rahe hain?",
+          "Aap akele nahi hain; kaafi log paise ka stress mehsoos karte hain. Chalo baat karte hain."
+        ]
+      },
+      "time_management": {
+        "inputs": ["I can't manage my time effectively", "Time management is hard for me", "I'm struggling with time management"],
+        "responses": [
+          "Waqt ka sahi management zaroori hai. Kya aapne apne kaam ko prioritize karne ki koi koshish ki hai?",
+          "Waqt ko manage karna mushkil ho sakta hai. Aapko kya khaas pareshani ho rahi hai?",
+          "Chalo kuch techniques dekhte hain jo aapke waqt management ko behtar bana sakti hain.",
+          "Aapke priorities samajhna madadgar ho sakta hai. Kaun se kaam aapka waqt le rahe hain?"
+        ]
+      },
+      "health_stress": {
+        "inputs": ["I'm stressed about my health", "Health issues are bothering me", "I'm worried about my health"],
+        "responses": [
+          "Sehat ka stress samanya hai. Kya koi khaas samasya hai jo aapko pareshan kar rahi hai?",
+          "Aapki sehat ka khayal rakhna zaroori hai. Aapke dimaag mein sehat ke baare mein kya hai?",
+          "Chalo dekhte hain ki aapko apni sehat ke baare mein kya pareshani hai.",
+          "Aap akele nahi hain; bahut log sehat ka stress mehsoos karte hain. Chalo baat karte hain."
+        ]
+      },
+      "social_stress": {
+        "inputs": ["I feel anxious in social situations", "Social situations make me anxious", "I don't like social gatherings"],
+        "responses": [
+          "Social stress kaafi challenging hota hai. Aapko kaun si situations zyada pareshan karti hain?",
+          "Social settings mein uneasy feel karna theek hai. Chalo is bare mein baat karte hain.",
+          "Kya aapne social anxiety se cope karne ke liye koi strategies apnayi hain?",
+          "Aap akele nahi hain; kaafi log aise feel karte hain. Aapke social anxiety ke triggers kya hain?"
+        ]
+      },
+      "life_change_stress": {
+        "inputs": ["I'm going through a major life change", "Life changes are stressing me out", "I can't handle this life change"],
+        "responses": [
+          "Zindagi ke badlav aksar stress laate hain. Aap kaunsa badlav mehsoos kar rahe hain?",
+          "Badlav ke dauraan stress mehsoos karna samanya hai. Chalo dekhte hain ki kya ho raha hai.",
+          "Zindagi ke badlav se samajhna mushkil hota hai. Aap kaun se khaas badlav ka samna kar rahe hain?",
+          "Aap akele nahi hain aise mehsoos karne mein. Chalo is bare mein baat karte hain."
+        ]
+      },
+      "relationship_stress": {
+        "inputs": ["I'm having relationship problems", "My relationship is causing me stress", "I'm stressed about my partner"],
+        "responses": [
+          "Relationship ka stress kaafi mushkil hota hai. Kya aap mujhe in samasyaon ke bare mein bata sakte hain?",
+          "Yeh samanya hai ki relationship mein challenges hote hain. Chalo dekhte hain ki kya aapko pareshan kar raha hai.",
+          "Kya aapne socha hai ki aap apne relationship mein kya sudharna chahte hain?",
+          "Aapke relationship concerns par baat karna madadgar ho sakta hai. Aapke dimaag mein kya hai?"
+        ]
+      }
+    }
+  }
+}
+
+

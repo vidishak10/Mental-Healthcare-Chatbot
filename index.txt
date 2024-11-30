@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <title>Mental Healthcare Chatbot</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Mental Healthcare Chatbot</h1>
+        </header>
+
+        <!-- Info Cards Section -->
+        <div class="info-cards">
+            <div class="card">
+                <h3>Tips for Good Mental Health</h3>
+                <p>Practice mindfulness, stay connected with loved ones, and ensure proper rest.</p>
+            </div>
+            <div class="card">
+                <h3>Daily Motivation</h3>
+                <p>"You are stronger than you think, and you have the power to overcome any challenge."</p>
+            </div>
+            <div class="card">
+                <h3>Resources</h3>
+                <p>Check out mental health support groups and professional help available online.</p>
+            </div>
+        </div>
+
+        <!-- Chat Container -->
+        <div class="chat-container">
+            <div id="chat-window" class="chat-window"></div>
+            <form id="chat-form" class="chat-form">
+                <input type="text" id="user-input" placeholder="Type your message..." required>
+                <button type="submit" id="send-btn">Send</button>
+            </form>
+        </div>
+
+        <!-- Mental State Meter -->
+        <div class="meter-container">
+            <h2>Mental State Meter</h2>
+            <div id="progress-ring" class="meter strong"></div> <!-- Update id to progress-ring -->
+            <p id="state-label">Strong</p>
+        </div>
+    </div>
+
+    <script src="/static/js/chatbot.js"></script>
+</body>
+</html>

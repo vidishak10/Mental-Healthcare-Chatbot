@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+    <title>Mental Healthcare Chatbot</title>
+    <!-- Banner Section -->
+
+    <style>
+        /* Add some basic styles for the About section */
+        .about-section {
+            display: none; /* Hidden by default */
+            padding: 20px;
+            background-color: #f4f4f4;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <nav class="navbar">
+        <div class="logo-container">
+            <i class="fas fa-brain logo-icon"></i>
+            <span class="logo-text">Calm Companion</span>
+        </div>
+        <ul class="nav-links">
+     <li><a href="#" class="nav-link" onclick="showAboutPopup()">About</a></li>
+    <li><a href="#" class="nav-link" onclick="scrollToSection('blog')">Blog</a></li>
+    <li><a href="#" class="nav-link" onclick="scrollToSection('contact')">Contact</a></li>
+</ul>
+    </nav>
+</header>
+<div class="banner">
+    <div class="banner-content">
+        <h1>Welcome to Our Website!</h1>
+        <p>Your mental health matters.</p>
+    </div>
+</div>
+
+<div class="chatbot-container">
+    <div class="chat-header">
+        <i class="fas fa-robot chat-icon"></i>
+        <span>AI Mental Health Assistant</span>
+    </div>
+    <div id="chat-window" class="chat-window"></div>
+    <form id="chat-form" class="chat-form">
+        <input type="text" id="user-input" placeholder="Type your message..." required>
+        <button type="submit" id="send-btn">
+            <i class="fas fa-paper-plane"></i>
+        </button>
+    </form>
+</div>
+
+<!-- Pop-up Card for About Section -->
+<div class="popup-overlay" id="popup-overlay"></div>
+<div class="popup-card" id="about-popup">
+    <div class="popup-content">
+        <span class="close-btn" onclick="closePopup()">✖</span>
+        <h3>About the Mental Healthcare Chatbot</h3>
+        <p>
+            The Mental Healthcare Chatbot is designed to provide support and resources for individuals seeking help with their mental health.
+            This chatbot offers a confidential space for users to engage in conversations about their feelings, thoughts, and experiences.
+        </p>
+        <ul>
+            <li>Provide immediate assistance and support to individuals in need.</li>
+            <li>Reduce the stigma associated with seeking mental health help.</li>
+            <li>Offer personalized resources and coping strategies based on user interactions.</li>
+            <li>Encourage users to engage in self-care and mindfulness practices.</li>
+        </ul>
+    </div>
+</div>
+
+
+<section class="blog-section" id="blog">
+    <h3>Latest Blogs on Mental Health</h3>
+    <div class="blog-grid">
+        <article class="blog-post">
+            <i class="blog-icon">🧠</i>
+            <span class="blog-tag">Anxiety</span>
+            <h4>Understanding Anxiety</h4>
+            <p>Anxiety disorders are the most common mental health issues in the U.S. Learn about the different types of anxiety disorders, including generalized anxiety disorder, social anxiety disorder, and panic disorder. This article will also cover effective coping strategies and treatments that can help individuals manage their anxiety.</p>
+        </article>
+
+        <article class="blog-post">
+            <i class="blog-icon">💆‍♀️</i>
+            <span class="blog-tag">Self-Care</span>
+            <h4>The Importance of Self-Care</h4>
+            <p>Self-care is vital for maintaining mental health and well-being. This blog discusses the essential self-care practices that can improve your mental health, such as mindfulness, physical activity, and proper sleep. We also delve into how establishing a self-care routine can significantly reduce stress and improve overall life satisfaction.</p>
+        </article>
+
+        <article class="blog-post">
+            <i class="blog-icon">😔</i>
+            <span class="blog-tag">Depression</span>
+            <h4>Coping with Depression</h4>
+            <p>Depression is a common but serious mood disorder that affects how you feel, think, and handle daily activities. In this article, we discuss the signs and symptoms of depression, various treatment options, and practical coping strategies to help individuals navigate their feelings and regain control of their lives.</p>
+        </article>
+
+        <article class="blog-post">
+            <i class="blog-icon">💪</i>
+            <span class="blog-tag">Resilience</span>
+            <h4>Building Resilience</h4>
+            <p>Resilience is the ability to bounce back from life's challenges. This blog post explores the traits that resilient individuals possess and offers practical tips on how to cultivate resilience in your life. Learn how resilience can help you cope with stress and overcome obstacles effectively.</p>
+        </article>
+
+        <article class="blog-post">
+            <i class="blog-icon">😌</i>
+            <span class="blog-tag">Stress</span>
+            <h4>Managing Stress in Daily Life</h4>
+            <p>Stress is a natural response to life's challenges, but chronic stress can harm your mental health. This article discusses effective stress management techniques such as deep breathing, exercise, and time management. By incorporating these strategies, you can reduce stress levels and improve your overall well-being.</p>
+        </article>
+
+        <article class="blog-post">
+            <i class="blog-icon">🕊️</i>
+            <span class="blog-tag">Trauma</span>
+            <h4>Understanding PTSD</h4>
+            <p>Post-Traumatic Stress Disorder (PTSD) is a mental health condition triggered by a traumatic event. In this blog, we explore the symptoms of PTSD, including flashbacks, nightmares, and severe anxiety. We also discuss treatment options, including therapy and medication, to help those affected find healing and support.</p>
+        </article>
+    </div>
+</section>
+
+  <section class="contact-section" id="contact">
+    <h3>Contact Information</h3>
+    <div class="contact-card">
+        <h4>Reach Out to Us</h4>
+        <div class="contact-item">
+            <i class="fas fa-phone-alt contact-icon"></i>
+            <span>Mobile: <strong>9850372668</strong></span>
+        </div>
+        <div class="contact-item">
+            <i class="fas fa-envelope contact-icon"></i>
+            <span>Email: <a href="mailto:khandalevidisha@gmail.com">khandalevidisha@gmail.com</a></span>
+        </div>
+    </div>
+</section>
+</section>
+
+<footer class="footer">
+    <p>"Nurturing Minds with Innovation: A Mental Healthcare Project by 7th Semester AI & Data Science Students"</p>
+</footer>
+
+<script src="/static/js/chatbot.js"></script>
+<script>
+    // Function to show the About pop-up
+    function showAboutPopup() {
+        const overlay = document.getElementById('popup-overlay');
+        const popup = document.getElementById('about-popup');
+
+        // Display the overlay and pop-up
+        overlay.style.display = 'block';
+        popup.style.display = 'block';
+    }
+
+    // Function to close the About pop-up
+    function closePopup() {
+        const overlay = document.getElementById('popup-overlay');
+        const popup = document.getElementById('about-popup');
+
+        // Hide the overlay and pop-up
+        overlay.style.display = 'none';
+        popup.style.display = 'none';
+    }
+
+    // Function to close the About section when the close icon is clicked
+    function closeAboutSection() {
+        const aboutSection = document.getElementById('about');
+
+        // Hide the About section
+        aboutSection.style.display = 'none';
+    }
+
+    // Function to scroll to other sections (Blog, Contact)
+    function scrollToSection(sectionId) {
+        const section = document.getElementById(sectionId);
+        if (section) {
+            section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }
+
+    // Handle form submission and send email
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const emailData = {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            message: document.getElementById('message').value
+        };
+
+        fetch('https://YOUR_BACKEND_URL/send-email', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(emailData)
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Email sent:', data);
+            alert('Email sent successfully!');
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Error sending email.');
+        });
+    });
+</script>
+
+</body>
+</html>

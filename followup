@@ -1,0 +1,24 @@
+def follow_up_conversation(follow_up_response):
+    follow_up_response = follow_up_response.lower()
+
+    # Check if the user wants relief techniques or not
+    if follow_up_response == 'yes':
+        relief_techniques = {
+            "stress": "1. Take deep breaths\n2. Set small achievable goals\n3. Try taking breaks during work.",
+            "anxiety": "1. Focus on your breathing\n2. Try grounding techniques\n3. Talk to someone you trust.",
+            "depression": "1. Talk to a professional\n2. Break tasks into smaller pieces\n3. Focus on positive aspects.",
+            "breakup": "1. Take time for self-care\n2. Talk to a friend\n3. Engage in activities you enjoy.",
+            "headache": "1. Drink water\n2. Rest in a dark room\n3. Use a cold compress.",
+            "stomach_ache": "1. Drink ginger tea\n2. Eat light meals\n3. Rest.",
+            "financial_issues": "1. Set a budget\n2. Cut unnecessary expenses\n3. Seek financial advice.",
+            "fatigue": "1. Get a good night's sleep\n2. Stay hydrated\n3. Eat balanced meals.",
+            "negative_feeling": "1. Take a break\n2. Engage in a positive activity\n3. Practice mindfulness.",
+            "tired": "1. Improve your sleep routine\n2. Take short breaks during the day\n3. Stay hydrated.",
+            "cornered": "1. Breathe deeply\n2. Take a step back\n3. Talk to someone you trust."
+        }
+        # Return relief techniques based on category
+        return relief_techniques
+    elif follow_up_response == 'no':
+        return "Is there anything else you would like to talk about or ask me?"
+    else:
+        return "Sorry, I didn't understand your response. Can you answer with 'yes' or 'no'?"

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>Mental Healthcare Chatbot</title>
+    <style>
+        /* Add some basic styles for the About section */
+        .about-section {
+            display: none; /* Hidden by default */
+            padding: 20px;
+            background-color: #f4f4f4;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <nav class="navbar">
+        <div class="logo-container">
+            <i class="fas fa-brain logo-icon"></i>
+            <span class="logo-text">Calm Companion</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#" class="nav-link" onclick="showSection('home')">Home</a></li>
+            <li><a href="#" class="nav-link" onclick="showSection('about')">About</a></li>
+            <li><a href="#" class="nav-link" onclick="showSection('blog')">Blog</a></li>
+            <li><a href="#" class="nav-link" onclick="showSection('contact')">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="container">
+    <div class="image-cards">
+        <div class="image-card">
+            <img src="/static/img/image1.jpg" alt="Image 1">
+        </div>
+        <div class="image-card">
+            <img src="static/img/image2.jpg" alt="Image 2">
+        </div>
+        <div class="image-card">
+            <img src="/static/img/image3.jpg" alt="Image 3">
+        </div>
+        <div class="image-card">
+            <img src="/static/img/image4.png" alt="Image 4">
+        </div>
+        <div class="image-card">
+            <img src="/static/img/image5.jpg" alt="Image 5">
+        </div>
+        <div class="image-card">
+            <img src="/static/img/image6.jpg" alt="Image 6">
+        </div>
+        <div class="image-card">
+            <img src="/static/img/image7.jpg" alt="Image 7">
+        </div>
+        <div class="image-card">
+            <img src="/static/img/image8.jpg" alt="Image 8">
+        </div>
+    </div>
+
+    <h2 class="chatbot-title">Mental Health Care Chatbot</h2>
+    <div class="chatbot-container">
+        <div class="chat-header">
+            <i class="fas fa-robot chat-icon"></i>
+            <span>AI Mental Health Assistant</span>
+        </div>
+        <div id="chat-window" class="chat-window"></div>
+        <form id="chat-form" class="chat-form">
+            <input type="text" id="user-input" placeholder="Type your message..." required>
+            <button type="submit" id="send-btn">
+                <i class="fas fa-paper-plane"></i> <!-- Send button icon -->
+            </button>
+        </form>
+    </div>
+
+    <section class="blog-section" id="blog">
+        <h3>Latest Blogs on Mental Health</h3>
+        <div class="blog-grid">
+            <article class="blog-post">
+                <h4>Understanding Anxiety</h4>
+                <p>Anxiety disorders are the most common mental health issues in the U.S. Learn about the different types of anxiety disorders, including generalized anxiety disorder, social anxiety disorder, and panic disorder. This article will also cover effective coping strategies and treatments that can help individuals manage their anxiety.</p>
+            </article>
+            <article class="blog-post">
+                <h4>The Importance of Self-Care</h4>
+                <p>Self-care is vital for maintaining mental health and well-being. This blog discusses the essential self-care practices that can improve your mental health, such as mindfulness, physical activity, and proper sleep. We also delve into how establishing a self-care routine can significantly reduce stress and improve overall life satisfaction.</p>
+            </article>
+                 <h4>Coping with Depression</h4>
+                <p>Depression is a common but serious mood disorder that affects how you feel, think, and handle daily activities. In this article, we discuss the signs and symptoms of depression, various treatment options, and practical coping strategies to help individuals navigate their feelings and regain control of their lives.</p>
+            </article>j
+            <article class="blog-post">
+                <h4>Building Resilience</h4>
+                <p>Resilience is the ability to bounce back from life's challenges. This blog post explores the traits that resilient individuals possess and offers practical tips on how to cultivate resilience in your life. Learn how resilience can help you cope with stress and overcome obstacles effectively.</p>
+            </article>
+            <article class="blog-post">
+                <h4>Managing Stress in Daily Life</h4>
+                <p>Stress is a natural response to life's challenges, but chronic stress can harm your mental health. This article discusses effective stress management techniques such as deep breathing, exercise, and time management. By incorporating these strategies, you can reduce stress levels and improve your overall well-being.</p>
+            </article>
+            <article class="blog-post">
+                <h4>Understanding PTSD</h4>
+                <p>Post-Traumatic Stress Disorder (PTSD) is a mental health condition triggered by a traumatic event. In this blog, we explore the symptoms of PTSD, including flashbacks, nightmares, and severe anxiety. We also discuss treatment options, including therapy and medication, to help those affected find healing and support.</p>
+            </article>
+        </div>
+    </section>
+
+    <section class="about-section" id="about">
+        <h3>About the Mental Healthcare Chatbot</h3>
+        <p>The Mental Healthcare Chatbot is designed to provide support and resources for individuals seeking help with their mental health. This chatbot offers a confidential space for users to engage in conversations about their feelings, thoughts, and experiences. The importance of such a chatbot lies in its ability to:</p>
+        <ul>
+            <li>Provide immediate assistance and support to individuals in need.</li>
+            <li>Reduce the stigma associated with seeking mental health help.</li>
+            <li>Offer personalized resources and coping strategies based on user interactions.</li>
+            <li>Encourage users to engage in self-care and mindfulness practices.</li>
+            <li>Facilitate a sense of community and understanding among users.</li>
+        </ul>
+        <p>Through innovative technology and AI, the Mental Healthcare Chatbot aims to enhance accessibility to mental health resources, making support available 24/7 for anyone who needs it.</p>
+    </section>
+
+</div>
+
+<footer class="footer">
+    <p>&copy; 2024 Mental Health Care. All rights reserved.</p>
+</footer>
+
+<script src="/static/js/chatbot.js"></script>
+<script>
+    function showSection(section) {
+        document.querySelector('.about-section').style.display = 'none';
+        document.querySelector('.blog-section').style.display = 'none';
+
+        if (section === 'about') {
+            document.querySelector('.about-section').style.display = 'block';
+        } else {
+            document.querySelector('.blog-section').style.display = 'block';
+        }
+    }
+</script>
+</body>
+</html>

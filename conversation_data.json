@@ -1,0 +1,123 @@
+{
+    "greetings": {
+        "keywords": ["hello", "hi", "hey", "greetings", "morning", "evening", "what's up", "howdy", "hola"],
+        "response": "Hello! How can I assist you today?",
+        "follow_up": "Is there anything specific you would like to talk about?"
+    },
+    "stress": {
+        "keywords": ["stress", "stressed", "workload", "pressure", "exams", "work pressure", "work stress", "deadline"],
+        "response": "Stress can be overwhelming. Here are some techniques that might help: \n1. Take deep breaths \n2. Set small achievable goals \n3. Try taking breaks during work.",
+        "follow_up": "Would you like me to suggest more stress relief techniques? (yes/no)"
+    },
+    "anxiety": {
+        "keywords": ["anxiety", "anxious", "nervous", "worried", "panic attack", "feeling anxious", "worrying"],
+        "response": "Anxiety can be overwhelming. Try focusing on your breathing, and consider talking to someone you trust or seeking professional help.",
+        "follow_up": "Would you like me to suggest some relaxation techniques? (yes/no)"
+    },
+    "depression": {
+        "keywords": ["depression", "feeling low", "feeling depressed", "hopeless", "down", "sad", "unmotivated"],
+        "response": "Depression is tough, but pls do not go  through it alone. Talking to a professional can really help.",
+        "follow_up": "Would you like resources for professional help or advice on how to take small steps to improve your mood? (yes/no)"
+    },
+    "breakup": {
+        "keywords": ["break up", "heartbroken", "lost someone", "break-up", "relationship issues"],
+        "response": "I'm really sorry you're feeling this way. Take some time for yourself, and talk to someone you trust. Healing takes time.",
+        "follow_up": "Would you like advice on self-care or ways to cope with feelings after a breakup? (yes/no)"
+    },
+    "headache": {
+        "keywords": ["headache", "migraine", "head pain", "head pain"],
+        "response": "Headaches can be really uncomfortable. Try drinking water, resting in a dark room, or using a cold compress. If it's persistent, consider seeking medical advice.",
+        "follow_up": "Would you like me to suggest some ways to relieve your headache? (yes/no)"
+    },
+    "stomach_ache": {
+        "keywords": ["stomach ache", "upset stomach", "abdominal pain", "gastritis", "nausea"],
+        "response": "Stomach aches can be caused by many things. Try drinking ginger tea or eating light meals. If it continues, please consult a doctor.",
+        "follow_up": "Would you like some suggestions for soothing your stomach or tips for managing stomach discomfort? (yes/no)"
+    },
+    "financial_issues": {
+        "keywords": ["financial stress", "money problems", "financial issues", "debt", "bills", "budget", "economic strain"],
+        "response": "Financial stress can be overwhelming. It may help to set a budget, cut unnecessary expenses, and seek financial advice if needed.",
+        "follow_up": "Would you like resources on financial planning or advice on how to manage financial stress more effectively? (yes/no)"
+    },
+    "fatigue": {
+        "keywords": ["fatigue", "tired", "exhausted", "no energy", "feeling drained"],
+        "response": "Fatigue is often a sign that your body needs rest. Try getting a good night's sleep, staying hydrated, and eating well-balanced meals.",
+        "follow_up": "Would you like tips on improving your sleep habits or suggestions for boosting your energy during the day? (yes/no)"
+    },
+    "negative_feeling": {
+        "keywords": ["feeling negative", "low energy", "lack of motivation", "not feeling good", "no mood"],
+        "response": "Feeling negative can be a sign of burnout or emotional exhaustion. It is  important to take a break and reset your mind.",
+        "follow_up": "Would you like some techniques to help shift your mindset or suggestions for activities that could help you feel better? (yes/no)"
+    },
+    "tired": {
+        "keywords": ["tired", "fatigued", "sleepy", "exhausted", "burned out"],
+        "response": "It sounds like you may need some rest. Sleep and self-care are crucial for recharging your body and mind.",
+        "follow_up": "Would you like advice on creating a better sleep routine or tips to avoid burnout? (yes/no)"
+    },
+    "cornered": {
+        "keywords": ["cornered", "back in corner", "trapped", "feeling stuck"],
+        "response": "Feeling cornered can be very distressing. It’s important to take a step back, breathe, and look at the situation from a different angle.",
+        "follow_up": "Would you like to talk about what's making you feel stuck, or would you like strategies for dealing with these emotions? (yes/no)"
+    },
+    "workload": {
+    "keywords": ["workload", "too much work", "overwhelmed", "stressed about work", "work pressure"],
+    "response": "It sounds like you're feeling overwhelmed with your workload. Remember to prioritize tasks and take short breaks when needed. Would you like tips on managing workload?",
+    "follow_up": "Would you like me to share some time management strategies?"
+  },
+  "health_issues": {
+    "keywords": ["health issues", "not feeling well", "sick", "unwell", "feeling bad"],
+    "response": "I'm sorry to hear about your health issues. Rest and hydration are essential. If it's serious, consulting a doctor is best. Would you like me to suggest some basic care tips?",
+    "follow_up": "Would you like some general health care advice?"
+  },
+  "marriage_issues": {
+    "keywords": ["marriage issues", "relationship problems", "spouse troubles", "marriage stress"],
+    "response": "I'm sorry to hear you're facing challenges in your marriage. Communication and mutual understanding are key. Would you like some advice on handling relationship stress?",
+    "follow_up": "Would you like me to share some tips for resolving conflicts?"
+  },
+  "disturbed": {
+    "keywords": ["disturbed", "mentally disturbed", "can't focus", "disrupted thoughts"],
+    "response": "It seems like you're feeling mentally disturbed. A calming activity like deep breathing or meditation might help. Would you like some guidance on relaxation techniques?",
+    "follow_up": "Would you like me to suggest ways to calm your mind?"
+  },
+  "not_happy": {
+    "keywords": ["not happy", "feeling down", "unhappy", "not satisfied"],
+    "response": "I'm sorry you're not feeling happy. Sometimes focusing on small joys can help. Would you like me to suggest ways to improve your mood?",
+    "follow_up": "Would you like me to suggest some mood-boosting activities?"
+  },
+  "feeling_sad": {
+    "keywords": ["feeling sad", "sad", "upset", "low"],
+    "response": "I'm sorry you're feeling sad. It's okay to feel this way sometimes. Talking to someone might help. Would you like some ideas to cope with sadness?",
+    "follow_up": "Would you like me to share techniques to cope with sadness?"
+  },
+  "feeling_alone": {
+    "keywords": ["feeling alone", "lonely", "isolated", "no one to talk to"],
+    "response": "I'm sorry you're feeling alone. Connecting with someone or even engaging in a hobby might help. Would you like some ideas to feel more connected?",
+    "follow_up": "Would you like me to share ways to combat loneliness?"
+  },
+  "feeling_anxious": {
+    "keywords": ["feeling anxious", "anxiety", "worried", "nervous"],
+    "response": "It seems like you're feeling anxious. Deep breathing or grounding techniques might help. Would you like me to share some anxiety relief tips?",
+    "follow_up": "Would you like me to share methods to manage anxiety?"
+  },
+  "feeling_scared": {
+    "keywords": ["feeling scared", "fearful", "afraid", "nervous", "panicked"],
+    "response": "I'm sorry you're feeling scared. It's okay to take a moment to ground yourself. Would you like some tips to feel safer and calmer?",
+    "follow_up": "Would you like me to suggest ways to manage fear?"
+  },
+  "suicidal_thoughts": {
+    "keywords": ["suicide", "suicidal", "kill myself", "don't want to live", "life is not worth it"],
+    "response": "I'm so sorry you're feeling this way. Please know that you are not alone. It's important to talk to someone you trust or seek help from a professional. Can I provide you with some emergency resources?",
+    "follow_up": null
+  },
+  "heartbreak": {
+    "keywords": ["cheated on me", "broke up", "heart broken", "girlfriend left", "boyfriend left"],
+    "response": "I'm sorry to hear that. Heartbreak can be tough, but it's important to take care of yourself. Would you like some ideas to cope with this?",
+    "follow_up": "connection_ideas"
+  },
+  "loneliness": {
+    "keywords": ["lonely", "nobody loves me", "feel alone", "isolated"],
+    "response": "I'm sorry you're feeling alone. Connecting with others can help. Would you like some ideas to feel more connected?",
+    "follow_up": "connection_ideas"
+  }
+  }
+

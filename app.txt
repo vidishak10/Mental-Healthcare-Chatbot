@@ -1,0 +1,127 @@
+from flask import Flask, request, jsonify, render_template
+from transformers import AutoModelForSeq2SeqLM, AutoTokenizer, AutoModelForCausalLM
+from textblob import TextBlob
+import torch
+import random
+
+app = Flask(__name__)
+
+# Load models and tokenizers
+model_dict = {
+    "blenderbot": {
+        "tokenizer": AutoTokenizer.from_pretrained("facebook/blenderbot-400M-distill"),
+        "model": AutoModelForSeq2SeqLM.from_pretrained("facebook/blenderbot-400M-distill")
+    },
+    "gpt2": {
+        "tokenizer": AutoTokenizer.from_pretrained("gpt2"),
+        "model": AutoModelForCausalLM.from_pretrained("gpt2")
+    },
+    "dialogpt": {
+        "tokenizer": AutoTokenizer.from_pretrained("microsoft/DialoGPT-medium"),
+        "model": AutoModelForCausalLM.from_pretrained("microsoft/DialoGPT-medium")
+    }
+}
+
+
+# Function to select model based on message type
+def select_model(user_message, sentiment_score):
+    if detect_suicidal_thoughts(user_message) or "depression" in user_message or sentiment_score < -0.5:
+        return model_dict["blenderbot"]
+    elif "?" in user_message:
+        return model_dict["gpt2"]
+    else:
+        return model_dict["dialogpt"]
+
+
+# Generate response based on model
+def get_model_response(user_message, selected_model):
+    try:
+        tokenizer, model = selected_model["tokenizer"], selected_model["model"]
+        inputs = tokenizer(user_message, return_tensors="pt")
+        if isinstance(model, AutoModelForSeq2SeqLM):  # for BlenderBot
+            response_ids = model.generate(**inputs)
+        else:  # for GPT-2 and DialoGPT (Causal LM)
+            response_ids = model.generate(inputs["input_ids"], max_length=50, pad_token_id=tokenizer.eos_token_id)
+        response = tokenizer.decode(response_ids[0], skip_special_tokens=True)
+        return response
+    except Exception as e:
+        return f"Error generating response from model: {e}"
+
+
+# Sentiment analysis function using TextBlob
+def analyze_sentiment(user_message):
+    try:
+        return TextBlob(user_message).sentiment.polarity
+    except Exception:
+        return 0.0  # Return neutral if there's an error
+
+
+# Function to detect suicidal thoughts
+def detect_suicidal_thoughts(user_message):
+    suicidal_phrases = ["want to suicide", "want to kill myself", "end my life"]
+    return any(phrase in user_message.lower() for phrase in suicidal_phrases)
+
+
+# Function to generate a human-like response with problem-solving suggestions
+def generate_human_like_response(user_message, sentiment_score):
+    responses = {
+        "greetings": ["Hello! How are you feeling today?", "Hi! How’s your day?", "Hey! What’s on your mind?"],
+        "stress": [
+            "It sounds like you're feeling stressed. Deep breathing or short breaks can sometimes help. Would you like more tips?"],
+        "depression": ["I'm here to listen. Talking to someone might help. Want to discuss anything specific?"],
+        "loneliness": [
+            "I'm sorry to hear that you're feeling lonely. Connecting with someone can help. Would you like some ideas?"],
+    }
+
+    # Check if specific phrases match
+    if detect_suicidal_thoughts(user_message):
+        return "I'm here for you. It’s very important to speak with someone who can help. Consider reaching out to a mental health professional."
+    elif "stressed" in user_message or "stress" in user_message:
+        return random.choice(responses["stress"])
+    elif "depression" in user_message or "depressed" in user_message:
+        return random.choice(responses["depression"])
+    elif "lonely" in user_message or "alone" in user_message:
+        return random.choice(responses["loneliness"])
+    elif sentiment_score > 0.1:
+        return "That’s great to hear! Keep up the positive energy!"
+    elif sentiment_score < -0.1:
+        return "I’m sorry you’re feeling this way. I'm here to talk if you'd like."
+    else:
+        return None  # No predefined response, fallback to model
+
+
+# Chat route
+@app.route('/chat', methods=['POST'])
+def chat():
+    data = request.get_json()
+    user_message = data.get('message')
+    sentiment_score = analyze_sentiment(user_message)
+
+    # Try human-like response first
+    human_like_response = generate_human_like_response(user_message, sentiment_score)
+
+    if human_like_response:
+        return jsonify({
+            "response": human_like_response,
+            "sentiment_score": sentiment_score,
+            "endangered": detect_suicidal_thoughts(user_message)
+        })
+    else:
+        # Fallback to selected model
+        selected_model = select_model(user_message, sentiment_score)
+        model_response = get_model_response(user_message, selected_model)
+        return jsonify({
+            "response": model_response,
+            "sentiment_score": sentiment_score,
+            "endangered": detect_suicidal_thoughts(user_message)
+        })
+
+
+# Route for home page
+@app.route('/')
+def home():
+    return render_template('index.html')
+
+
+if __name__ == '__main__':
+    app.run(debug=True)

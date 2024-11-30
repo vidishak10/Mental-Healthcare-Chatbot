@@ -1,0 +1,182 @@
+from flask import Flask, request, jsonify, render_template
+from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
+from textblob import TextBlob
+import random
+
+
+app = Flask(__name__)
+
+# Load BlenderBot model and tokenizer
+model_name = "facebook/blenderbot-400M-distill"
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+
+try:
+    model = AutoModelForSeq2SeqLM.from_pretrained(model_name)
+except OSError as e:
+    print(f"Error loading PyTorch model: {e}")
+
+# Function to get a response from BlenderBot model
+def get_model_response(user_message):
+    try:
+        inputs = tokenizer([user_message], return_tensors="pt")
+        response_ids = model.generate(**inputs)
+        response = tokenizer.decode(response_ids[0], skip_special_tokens=True)
+        return response
+    except Exception as e:
+        return f"Error generating response from model: {e}"
+
+# Sentiment analysis function using TextBlob
+def analyze_sentiment(user_message):
+    try:
+        return TextBlob(user_message).sentiment.polarity
+    except Exception:
+        return 0.0  # Return neutral if there's an error
+
+# Function to detect suicidal thoughts
+def detect_suicidal_thoughts(user_message):
+    suicidal_phrases = ["want to suicide", "want to kill myself", "end my life"]
+    return any(phrase in user_message.lower() for phrase in suicidal_phrases)
+
+# Function to generate a human-like response with problem-solving suggestions
+def generate_human_like_response(user_message, sentiment_score):
+    user_message = user_message.lower().strip()
+
+    # Check for suicidal thoughts
+    if detect_suicidal_thoughts(user_message):
+        return "I'm really sorry you're feeling this way. It's very important to talk to someone who can help, like a mental health professional."
+
+    # Predefined responses to various emotional states
+    responses = {
+        "greetings": [
+        "Hello! How are you feeling today? I’m here if you need someone to talk to.",
+        "Hi there! How’s your day going? I’m here if you want to share anything.",
+        "Hey! Hope you’re doing well. What’s on your mind?",
+        "Good to see you! How are you feeling right now?",
+        "Hello! I’m ready to listen whenever you’re ready to talk."
+    ],
+        "stress": [
+            "I'm really sorry to hear that you're stressed. Here are some tips to help you manage stress:\n\n"
+            "1. **Deep Breathing:** Try inhaling slowly through your nose and exhaling through your mouth to calm yourself.\n"
+            "2. **Physical Exercise:** Engage in light exercises like yoga or a short walk.\n"
+            "3. **Time Management:** Break down your tasks and focus on one thing at a time.\n"
+            "4. **Take Breaks:** Step away from what’s causing the stress and give yourself time to relax."
+        ],
+        "depression": [
+            "It sounds like you might be feeling down. Here are some strategies to help manage depressive feelings:\n\n"
+            "1. **Talk to Someone:** Sharing your feelings with a friend or family member can really help.\n"
+            "2. **Engage in Physical Activity:** Even light movement can lift your mood.\n"
+            "3. **Healthy Routine:** Try establishing a regular sleep, eating, and exercise routine.\n"
+            "4. **Mindfulness:** Consider practicing meditation or journaling to express what you’re feeling."
+        ],
+        "thank_you": [
+            "You're very welcome! I'm glad I could help. How are you feeling now?",
+            "It's my pleasure! Remember, I'm always here if you need to talk.",
+            "You're welcome! Feel free to share more if you need to."
+        ],
+        "no_stress_relief": [
+            "That's okay! Sometimes just sharing what you're feeling can help. If you're interested, I can suggest more relaxation techniques or tips for managing your time better. Would you like that?"
+        ],
+        "relaxation_tips": [
+            "Here are a few tips you can try:\n1. **Deep Breathing:** Take a few minutes to focus on your breathing. "
+            "Inhale deeply through your nose, hold it for a few seconds, and exhale slowly through your mouth.\n2. "
+            "**Take Breaks:** Step away from your work for a few minutes every hour. A short walk or a stretch can "
+            "help clear your mind.\n3. **Organize Your Tasks:** Create a to-do list to prioritize your tasks. This "
+            "can help you feel more in control.\n4. **Exercise:** Even a little movement can boost your mood. Have "
+            "you thought about going for a walk or doing some light yoga?"
+        ],
+        "loneliness": [
+            "I'm sorry to hear that you're feeling lonely. Here are some tips that might help:\n1. **Reach Out to Friends or Family:** Even a quick text or call can help you feel more connected.\n2. **Join a Group or Class:** Engaging in activities with others can provide social interaction and make you feel less isolated.\n3. **Volunteer:** Helping others can be a great way to meet new people and improve your mood.\n4. **Explore New Hobbies:** Finding something new to do can take your mind off loneliness and keep you engaged."
+        ],
+        "positive_feedback": [
+            "That's great to hear! What’s been making you feel better lately?",
+            "I'm glad you're feeling positive. Let’s keep that energy going—what else is on your mind?"
+        ],
+        "tired": [
+            "You seem tired. It's okay to take breaks and rest when you need to. Would you like some tips on how to recharge?"
+        ]
+    }
+
+    # Greeting detection
+    greetings = ["hello", "hi", "hey", "good morning", "good afternoon", "good evening"]
+    if any(greet in user_message for greet in greetings):
+        return random.choice(responses["greetings"])
+
+    # Response logic based on user input
+    if "thank you" in user_message or "thanks" in user_message:
+        return random.choice(responses["thank_you"])
+    elif "stressed" in user_message or "stress" in user_message:
+        return random.choice(responses["stress"])
+    elif "depressed" in user_message or "depression" in user_message:
+        return random.choice(responses["depression"])
+    elif "no" in user_message or "not" in user_message:
+        return random.choice(responses["no_stress_relief"])
+    elif "relax" in user_message or "calm" in user_message or "anxiety" in user_message:
+        return random.choice(responses["relaxation_tips"])
+    elif "lonely" in user_message or "alone" in user_message:
+        return random.choice(responses["loneliness"])
+    elif sentiment_score > 0.1:
+        return random.choice(responses["positive_feedback"])
+    elif sentiment_score < -0.1:
+        return "I’m really sorry to hear that. Would you like to talk more about what's causing your stress?"
+    else:
+        return None  # No predefined response, fallback to model
+
+# Chat route to handle manual responses and fall back to the pretrained model
+@app.route('/chat', methods=['POST'])
+def chat():
+    data = request.get_json()
+    user_message = data.get('message')
+
+    sentiment_score = analyze_sentiment(user_message)
+
+    # Get human-like response
+    human_like_response = generate_human_like_response(user_message, sentiment_score)
+
+    # If no predefined response, return None and fallback to the pre-trained model
+    if human_like_response:
+        return jsonify({
+            "response": human_like_response,
+            "sentiment_score": sentiment_score,
+            "endangered": detect_suicidal_thoughts(user_message)
+        })
+    else:
+        # Fallback to the pre-trained model
+        model_response = get_model_response(user_message)
+        return jsonify({
+            "response": model_response,
+            "sentiment_score": sentiment_score,
+            "endangered": detect_suicidal_thoughts(user_message)
+        })
+
+    import smtplib
+    from email.mime.text import MIMEText
+    from email.mime.multipart import MIMEMultipart
+
+    def send_email(subject, body, to_email):
+        # Replace with your email and password or app password
+        from_email = 'khandalevidisha@gmail.com'
+        password = 'Vidu10059@'  # App password if 2FA is enabled
+
+        msg = MIMEMultipart()
+        msg['From'] = from_email
+        msg['To'] = to_email
+        msg['Subject'] = subject
+
+        msg.attach(MIMEText(body, 'plain'))
+
+        # Using Gmail's SMTP server
+        server = smtplib.SMTP('smtp.gmail.com', 587)
+        server.starttls()  # Secure the connection
+        server.login(from_email, password)
+        text = msg.as_string()
+        server.sendmail(from_email, to_email, text)
+        server.quit()
+
+
+# Route for home page
+@app.route('/')
+def home():
+    return render_template('index.html')
+
+if __name__ == '__main__':
+    app.run(debug=True)

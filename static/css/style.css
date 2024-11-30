@@ -1,0 +1,139 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Body */
+body {
+    background-color: #f5f7fa;
+    color: #333;
+}
+
+/* Header */
+.header {
+    background-color: #5c6bc0;
+    padding: 20px 0;
+    color: #fff;
+}
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+}
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+.nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+.nav a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Banner */
+.banner {
+    background-image: url('https://source.unsplash.com/1600x900/?calm,nature');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    padding: 100px 40px;
+    text-align: center;
+}
+.banner-content h2 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+.explore-btn {
+    padding: 10px 20px;
+    background-color: #5c6bc0;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Sections */
+.about-section, .resources-section, .blog-section, .contact-section {
+    padding: 60px 40px;
+    text-align: center;
+}
+.resources-section, .blog-section {
+    background-color: #eef1f5;
+}
+
+/* Resource Cards */
+.resource-cards {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+}
+.resource-card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    width: 30%;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+}
+.resource-card .icon {
+    font-size: 3em;
+    color: #5c6bc0;
+}
+
+/* Blog Grid */
+.blog-grid {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+.blog-post {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 30%;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+.blog-post .read-more {
+    color: #5c6bc0;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Contact Form */
+.contact-form {
+    max-width: 500px;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.contact-form input, .contact-form textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.contact-form button {
+    padding: 10px;
+    background-color: #5c6bc0;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Footer */
+.footer {
+    background-color: #5c6bc0;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    font-size: 0.9em;
+}
